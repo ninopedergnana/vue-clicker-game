@@ -20,7 +20,7 @@
                 </button>
             </div>
                 <div class="w-full bg-gray-300 rounded-full dark:bg-gray-700">
-                    <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs border font-bold border-purple-500 text-white text-center p-0.5 leading-none rounded-full" :style="{width: `${calculatePercentageToGoal()}%`}"> {{ calculatePercentageToGoal() }}% </div>
+                    <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs font-bold text-white text-center p-0.5 leading-none rounded-full" :style="{width: `${calculatePercentageToGoal()}%`}"> {{ calculatePercentageToGoal() }}% </div>
                 </div>
             </div>
             <div>
@@ -59,7 +59,7 @@ let interval = null
 let interval2 = null
 let gameIsRunning = ref(false)
 let elapsedTime = ref(0)
-let goal = ref(1_000)
+let goal = ref(1_000_000_000)
 
 const increaseValues = [
   { value: 10, cost: 100},
@@ -97,7 +97,7 @@ const calculatePercentageToGoal = () => {
     if(score.value >= goal.value || score.value < 0) {
         pauseGame()
     }
-    return Math.floor(percentageToGoal)
+    return Math.min(Math.floor(percentageToGoal), 100)
 }
 
 const clickButton = () => {
