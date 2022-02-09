@@ -1,24 +1,18 @@
 <template>
+<div>
     <h1>HOME</h1>
+    <div>
+        <Clicker></Clicker>
+    </div>
+</div>
+
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useStore } from 'vuex'
+import Clicker from "../components/Clicker.vue"
 
 export default {
-    setup() {
-        const login_form = ref({});
-        const store = useStore();
-
-        const logout = () => {
-          store.dispatch('logout', login_form.value)
-        }
-
-        return {
-            logout
-        }
-    }
+    components: { Clicker }
 }
 </script>
 
