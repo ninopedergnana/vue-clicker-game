@@ -15,12 +15,12 @@
                 <div>Time: {{ formatTime() }}</div>
                 <div>Goal: {{ goal.toLocaleString() }}</div>
             <div>
-                <button :disabled='!gameIsRunning' @click="clickButton()" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black font-bold active:animate-wiggle py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                <button :disabled='!gameIsRunning' @click="clickButton()" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white text-white', 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-bold active:animate-wiggle py-2 m-2 px-4 rounded-full focus:shadow-outline']">
                     CLICK {{ clickIncrementValue }}
                 </button>
             </div>
                 <div class="w-full bg-gray-300 rounded-full dark:bg-gray-700">
-                    <div class="bg-purple-500 text-xs border font-bold border-purple-500 text-gray-900 text-center p-0.5 leading-none rounded-full" :style="{width: `${calculatePercentageToGoal()}%`}"> {{ calculatePercentageToGoal() }}% </div>
+                    <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-xs border font-bold border-purple-500 text-white text-center p-0.5 leading-none rounded-full" :style="{width: `${calculatePercentageToGoal()}%`}"> {{ calculatePercentageToGoal() }}% </div>
                 </div>
             </div>
             <div>
@@ -28,7 +28,7 @@
                     <button
                     :disabled='score < item.cost || !gameIsRunning'
                     @click="changeClickAmount(item.value, item.cost, false)" 
-                    :class="[score < item.cost || !gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                    :class="[score < item.cost || !gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
                     + {{ item.value.toLocaleString() }} Click
                     </button>
                 </template>
@@ -59,7 +59,7 @@ let interval = null
 let interval2 = null
 let gameIsRunning = ref(false)
 let elapsedTime = ref(0)
-let goal = ref(1_000_000_000)
+let goal = ref(1_000)
 
 const increaseValues = [
   { value: 10, cost: 100},
