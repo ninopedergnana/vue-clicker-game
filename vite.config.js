@@ -3,6 +3,6 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  base: '/vue-clicker-game/'
+  base: '/vue-clicker-game/',
+  plugins: [vue()]
 })
