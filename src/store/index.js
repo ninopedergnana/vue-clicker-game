@@ -17,7 +17,7 @@ export default createStore({
     },
     actions: {
         async register({commit}, details) {
-            const { firstName, surname, email, password } = details
+            const {email, password } = details
             try {
                 await createUserWithEmailAndPassword(auth, email, password)
             } catch (error) {

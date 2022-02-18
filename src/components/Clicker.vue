@@ -2,10 +2,10 @@
     <div class="flex justify-center items-center mt-20">
         <div class="w-full max-w-sm">
             <div>
-                <button :disabled='gameIsRunning' @click="startGame()" :class="[gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                <button :disabled='gameIsRunning' @click="startGame" :class="[gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
                     Start
                 </button>
-                <button :disabled='!gameIsRunning' @click="pauseGame()" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                <button :disabled='!gameIsRunning' @click="pauseGame" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
                     Stop
                 </button>
             </div>
@@ -15,7 +15,7 @@
                 <div>Time: {{ formatTime() }}</div>
                 <div>Goal: {{ goal.toLocaleString() }}</div>
             <div>
-                <button :disabled='!gameIsRunning' @click="clickButton()" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white text-white', 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-bold active:animate-wiggle py-2 m-2 px-4 rounded-full focus:shadow-outline']">
+                <button :disabled='!gameIsRunning' @click="clickButton" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white text-white', 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-bold active:animate-wiggle py-2 m-2 px-4 rounded-full focus:shadow-outline']">
                     CLICK {{ clickIncrementValue }}
                 </button>
             </div>
@@ -50,22 +50,21 @@
 <script setup>
 import { ref } from "vue";
 
-
-let totalClicks = ref(0);
-let score = ref(0);
-let timeIncrementValue = ref(0)
-let clickIncrementValue = ref(1)
+const totalClicks = ref(0);
+const score = ref(0);
+const timeIncrementValue = ref(0)
+const clickIncrementValue = ref(1)
 let interval = null
 let interval2 = null
-let gameIsRunning = ref(false)
-let elapsedTime = ref(0)
-let goal = ref(1_000_000_000)
+const gameIsRunning = ref(false)
+const elapsedTime = ref(0)
+const goal = ref(1_000_000_000)
 
 const increaseValues = [
   { value: 10, cost: 100},
-  { value: 100, cost: 1000},
-  { value: 1000, cost: 10000},  
-  { value: 100000, cost: 1000000}
+  { value: 100, cost: 1_000},
+  { value: 1_000, cost: 10_000},  
+  { value: 100_000, cost: 1_000_000}
 ]
 
 const startGame = () => {

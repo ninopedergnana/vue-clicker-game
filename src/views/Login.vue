@@ -66,24 +66,16 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-export default {
-    setup() {
-        const login_form = ref({});
-        const store = useStore();
-        
-        const login = () => {
-          console.log(login_form.value);
-          store.dispatch('login', login_form.value)
-        }
+const login_form = ref({});
+const store = useStore();
 
-        return {
-            login_form,
-            login
-        }
-    }
+const login = () => {
+  console.log(login_form.value);
+  store.dispatch('login', login_form.value)
 }
+
 </script>
