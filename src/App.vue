@@ -5,20 +5,18 @@
 </div>
 </template>
 
-<script>
+<script setup>
 import { onBeforeMount } from 'vue';
 import { useStore } from 'vuex'
 import Navbar from "./components/Navbar.vue"
 
-export default {
-    setup() {
-        const store = useStore();
-        onBeforeMount(() => {
-            store.dispatch("fetchUser");
-        });
-    },
-    components: { Navbar }
-}
+const store = useStore();
+
+onBeforeMount(() => {
+      store.dispatch("fetchUser");
+});
+
+
 </script>
 
 <style>
