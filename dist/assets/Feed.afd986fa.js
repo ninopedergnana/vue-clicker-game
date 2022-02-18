@@ -1,0 +1,1 @@
+import{u as t,q as r,y as s}from"./vendor.0d112d64.js";import{_ as c}from"./index.931b2cc8.js";const n={setup(){const o=t();return{logout:()=>{o.dispatch("logout")}}}};function a(o,e,u,p,d,l){return r(),s("h1",null,"FEED")}var i=c(n,[["render",a]]);export{i as default};
