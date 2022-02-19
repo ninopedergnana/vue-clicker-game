@@ -1,11 +1,10 @@
 <template>  
   <div>
     <h1>REGISTER</h1>
-      <div class="flex justify-center items-center mt-20">
+      <!-- <div class="flex justify-center items-center mt-20">
         <div class="w-full max-w-xs">
           <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="register">
 
-            <!-- EMAIL -->
             <div class="identity-input mb-4">
               <label
                 for="identity"
@@ -24,7 +23,6 @@
               <span class="text-xs text-red-700" id="emailHelp"></span>
             </div>
 
-            <!-- PASSWORD -->
             <div class="password-input mb-6">
               <label
                 for="identity"
@@ -66,7 +64,7 @@
             </div>
           </form>
         </div>
-      </div>
+      </div> -->
     </div>
 </template>
 
