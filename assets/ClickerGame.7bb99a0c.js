@@ -1,0 +1,1 @@
+import{_ as r}from"./Clicker.6e22bb99.js";import{_ as c}from"./plugin-vue_export-helper.21dcd24c.js";import{r as n,k as s,m as t,n as e,p as a}from"./vendor.ea711ed1.js";const l={components:{Clicker:r}},i=e("h1",null,"Clicky",-1);function p(_,m,d,f,k,u){const o=n("Clicker");return s(),t("div",null,[i,e("div",null,[a(o)])])}var h=c(l,[["render",p]]);export{h as default};
