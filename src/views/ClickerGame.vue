@@ -1,7 +1,9 @@
 <template>
 <div>
-    <h1>HOME</h1>
-    <p>CV</p>
+    <h1>Clicky</h1>
+    <div>
+        <Clicker></Clicker>
+    </div>
 </div>
 
 </template>

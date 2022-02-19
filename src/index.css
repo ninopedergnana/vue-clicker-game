@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1{ 
+        @apply text-3xl font-bold font-mono m-0
+    }
+    p{ 
+        @apply text-2xl font-mono my-1 
+    }
+
+    button{
+        @apply opacity-100 text-white bg-black font-bold py-2 m-2 px-4 rounded
+    }
+
+
+
+}
+
+@layer components {
+
+    .disabledButton {
+        @apply cursor-not-allowed opacity-50 bg-black  font-bold py-2 m-2 px-4 border border-black rounded
+    }
+
+    .enabledButton {
+        @apply opacity-100 hover:bg-white hover:text-black text-white bg-black font-bold py-2 m-2 px-4 border border-black rounded
+    }
+
+    .clickButtonEnabled {
+        @apply opacity-100 hover:bg-gradient-to-r bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-bold active:animate-wiggle py-2 m-2 px-4 rounded-full
+    }
+
+    .clickButtonDisabled {
+        @apply cursor-not-allowed opacity-50 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-bold active:animate-wiggle py-2 m-2 px-4 rounded-full
+    }
+
+    .routerLink {
+        @apply text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold
+    }
+
+    .profileButton {
+        @apply flex text-sm rounded-full
+    }
+
+
+}

@@ -1,31 +1,28 @@
 <template>
-  <Disclosure as="nav" class="bg-transparent" v-slot="{ open }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
-
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <!-- Mobile menu button-->
-          <DisclosureButton class="inline-flex items-center 
-          justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-            <span class="sr-only">Open main menu</span>
-            <MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
-            <XIcon v-else class="block h-6 w-6" aria-hidden="true" />
-          </DisclosureButton>
+        <div class="flex mx-10 my-2 items-center justify-between h-16 sm:invisible fixed bottom-0 inset-x-0">
+          <router-link to="/login">
+          <font-awesome-icon class="w-6 h-6" :icon="['fas', 'arrow-right-to-bracket']" />
+          </router-link>
+          <router-link to="/">
+            <font-awesome-icon class="w-7 h-7" :icon="['fas', 'house']" />
+          </router-link>
+          <router-link to="/clicky">
+          <font-awesome-icon class="w-6 h-6" :icon="['fas', 'fire-flame-curved']" />
+          </router-link>
         </div>
-
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-            <router-link class="font-bold text-xl" to="/">App Name</router-link>
+            <router-link class="font-bold text-xl hidden sm:block routerLink" to="/">Appy</router-link>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4" v-if="$store.state.user">
-              <router-link v-for="item in navigation" :key="item.name" 
-              :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-md font-medium']" 
+              <router-link class="routerLink" v-for="item in navigation" :key="item.name" 
               :aria-current="item.current ? 'page' : undefined" :to="item.to" >{{ item.name }}</router-link>
             </div>
             <div class="flex space-x-4" v-if="!$store.state.user">
-              <router-link v-for="item in navigationLoggedOut" :key="item.name" 
-              :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-md font-medium']" 
+              <router-link class="routerLink" v-for="item in navigationLoggedOut" :key="item.name" 
               :aria-current="item.current ? 'page' : undefined" :to="item.to" >{{ item.name }}</router-link>
             </div>
           </div>
@@ -36,7 +33,7 @@
           <!-- Profile dropdown -->
           <Menu as="div" class="ml-3 relative">
             <div>
-              <MenuButton class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <MenuButton class='profileButton'>
                 <span class="sr-only">Open user menu</span>
                 <div class="h-8 w-8 bg-black rounded-full" />
               </MenuButton>
@@ -58,34 +55,15 @@
         </div>
       </div>
     </div>
-
-    <DisclosurePanel class="sm:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1" v-if="$store.state.user">
-        <router-link v-for="item in navigation" :key="item.name"
-        :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" 
-        :aria-current="item.current ? 'page' : undefined" :to="item.to" >{{ item.name }}
-        </router-link>
-      </div>
-
-      <div class="px-2 pt-2 pb-3 space-y-1" v-if="!$store.state.user">
-        <router-link v-for="item in navigationLoggedOut" :key="item.name"  
-        :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" 
-        :aria-current="item.current ? 'page' : undefined" :to="item.to">{{ item.name }}
-        </router-link>
-      </div>
-    </DisclosurePanel>
-
-  </Disclosure>
 </template>
 
-<script>
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+<script setup>
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { useStore } from 'vuex'
 import { onBeforeMount } from 'vue'
 
+
 const navigation = [
-  { name: 'Home', to: '/', current: false },
   { name: 'Feed', to: '/feed', current: false },
 ]
 
@@ -93,32 +71,11 @@ const navigationLoggedOut = [
   { name: 'Register', to: '/register', current: false },
   { name: 'Login', to: '/login', current: false }
 ]
-
-export default {
-  components: {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    BellIcon,
-    MenuIcon,
-    XIcon,
-  },
-  setup() {
     
-    const store = useStore();
+const store = useStore();
 
-    onBeforeMount(() => {
-      store.dispatch('fetchUser')
-    })
+onBeforeMount(() => {
+  store.dispatch('fetchUser')
+})
 
-    return {
-      navigation,
-      navigationLoggedOut
-    }
-  },
-}
 </script>

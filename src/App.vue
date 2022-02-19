@@ -1,8 +1,8 @@
 <template>
-<div>
-  <Navbar></Navbar>
-  <router-view/> 
-</div>
+  <div>
+    <Navbar></Navbar>
+    <router-view/> 
+  </div>
 </template>
 
 <script setup>
@@ -16,15 +16,13 @@ onBeforeMount(() => {
       store.dispatch("fetchUser");
 });
 
-
 </script>
 
-<style>
-body {
-    background: #445c74;
-    margin: 0px;
-    color: white;
-}
+<style lang="postcss">
+html {
+    @apply bg-gradient-to-r from-slate-200;
+  }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

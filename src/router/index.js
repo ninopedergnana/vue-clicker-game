@@ -15,6 +15,11 @@ const router = createRouter({
             component: () => import("../views/Register.vue"),
         },
         {
+            path: "/clicky", 
+            name: 'Clicky',
+            component: () => import("../views/ClickerGame.vue"),
+        },
+        {
             path: "/feed", 
             name: 'Feed',
             component: () => import("../views/Feed.vue"),

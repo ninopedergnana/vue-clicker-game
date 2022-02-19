@@ -2,20 +2,20 @@
     <div class="flex justify-center items-center mt-20">
         <div class="w-full max-w-sm">
             <div>
-                <button :disabled='gameIsRunning' @click="startGame" :class="[gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                <button :disabled='gameIsRunning' @click="startGame" :class="[gameIsRunning ? 'disabledButton': 'enabledButton']">
                     Start
                 </button>
-                <button :disabled='!gameIsRunning' @click="pauseGame" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                <button :disabled='!gameIsRunning' @click="pauseGame" :class="[!gameIsRunning ? 'disabledButton': 'enabledButton']">
                     Stop
                 </button>
             </div>
             <div>
-                <div>Total Clicks: {{ totalClicks }} </div>
-                <div>Score: {{ score.toLocaleString() }}</div>
-                <div>Time: {{ formatTime() }}</div>
-                <div>Goal: {{ goal.toLocaleString() }}</div>
+                <p>Total Clicks: {{ totalClicks }} </p>
+                <p>Score: {{ score.toLocaleString() }}</p>
+                <p>Time: {{ formatTime() }}</p>
+                <p>Goal: {{ goal.toLocaleString() }}</p>
             <div>
-                <button :disabled='!gameIsRunning' @click="clickButton" :class="[!gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white text-white', 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-bold active:animate-wiggle py-2 m-2 px-4 rounded-full focus:shadow-outline']">
+                <button :disabled='!gameIsRunning' @click="clickButton" :class="[!gameIsRunning ? 'clickButtonDisabled' : 'clickButtonEnabled']">
                     CLICK {{ clickIncrementValue }}
                 </button>
             </div>
@@ -28,7 +28,7 @@
                     <button
                     :disabled='score < item.cost || !gameIsRunning'
                     @click="changeClickAmount(item.value, item.cost, false)" 
-                    :class="[score < item.cost || !gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                    :class="[score < item.cost || !gameIsRunning ? 'disabledButton': 'enabledButton']">
                     + {{ item.value.toLocaleString() }} Click
                     </button>
                 </template>
@@ -38,7 +38,7 @@
                     <button
                     :disabled='score < item.cost || !gameIsRunning'
                     @click="increaseTimeIncrementValueByX(item.value, item.cost)" 
-                    :class="[score < item.cost || !gameIsRunning ? 'cursor-not-allowed opacity-50' : 'opacity-100 hover:bg-white hover:text-black text-white', 'bg-black  font-bold py-2 m-2 px-4 border border-black rounded focus:shadow-outline']">
+                    :class="[score < item.cost || !gameIsRunning ? 'disabledButton': 'enabledButton']">
                     + {{ item.value.toLocaleString() }} / sec
                     </button>
                 </template>
