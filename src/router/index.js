@@ -12,6 +12,7 @@ const router = createRouter({
         {
             path: "/register", 
             name: 'Register',
+            mode: 'hash',
             component: () => import("../views/Register.vue"),
         },
         {
