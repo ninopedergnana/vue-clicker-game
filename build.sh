@@ -1,6 +1,5 @@
 #!/bin/bash
 npm run build
-cd dist
 echo "nino-pedergnana.ch" > dist/CNAME
 git add --all
 git commit -m "build project"
