@@ -1,0 +1,1 @@
+import{u as t,k as r,m as s}from"./vendor.ea711ed1.js";import{_ as c}from"./plugin-vue_export-helper.21dcd24c.js";const n={setup(){const e=t();return{logout:()=>{e.dispatch("logout")}}}};function a(e,o,p,u,l,d){return r(),s("h1",null,"FEED")}var i=c(n,[["render",a]]);export{i as default};
