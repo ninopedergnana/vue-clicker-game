@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
-        <div class="flex mx-10 my-2 items-center justify-between h-16 sm:invisible fixed bottom-0 inset-x-0">
+        <div class="flex mx-10 items-center justify-between h-16 sm:invisible fixed bottom-0 inset-x-0">
           <router-link to="/login">
           <font-awesome-icon class="w-6 h-6" :icon="['fas', 'arrow-right-to-bracket']" />
           </router-link>

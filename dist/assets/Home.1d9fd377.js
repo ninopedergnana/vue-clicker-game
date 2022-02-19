@@ -1,0 +1,1 @@
+import{_ as o}from"./Clicker.6e22bb99.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";import{k as t,m as r,n as e}from"./vendor.ea711ed1.js";const n={components:{Clicker:o}},c=e("h1",null,"HOME",-1),_=e("p",null,"CV",-1),a=[c,_];function p(i,l,d,m,f,u){return t(),r("div",null,a)}var v=s(n,[["render",p]]);export{v as default};

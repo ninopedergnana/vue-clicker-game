@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center mt-20">
+    <div class="flex justify-center items-center mt-0">
         <div class="w-full max-w-sm">
             <div>
                 <button :disabled='gameIsRunning' @click="startGame" :class="[gameIsRunning ? 'disabledButton': 'enabledButton']">
