@@ -17,11 +17,11 @@
             <router-link class="font-bold text-xl hidden sm:block routerLink" to="/">Appy</router-link>
           </div>
           <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4" v-if="$store.state.user">
+            <div class="flex space-x-5" v-if="$store.state.user">
               <router-link class="routerLink" v-for="item in navigation" :key="item.name" 
               :aria-current="item.current ? 'page' : undefined" :to="item.to" >{{ item.name }}</router-link>
             </div>
-            <div class="flex space-x-4" v-if="!$store.state.user">
+            <div class="flex space-x-4 pt-1" v-if="!$store.state.user">
               <router-link class="routerLink" v-for="item in navigationLoggedOut" :key="item.name" 
               :aria-current="item.current ? 'page' : undefined" :to="item.to" >{{ item.name }}</router-link>
             </div>
