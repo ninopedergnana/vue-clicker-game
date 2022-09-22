@@ -1,5 +1,6 @@
 <template>
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <!-- Navbar phone size -->
       <div class="relative flex items-center justify-between h-16">
         <div class="flex mx-10 items-center justify-between h-16 sm:invisible fixed bottom-0 inset-x-0">
           <router-link to="/login">
@@ -12,17 +13,19 @@
           <font-awesome-icon class="w-6 h-6" :icon="['fas', 'fire-flame-curved']" />
           </router-link>
         </div>
+
+        <!-- Navbar normal size -->
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-            <router-link class="font-bold text-xl hidden sm:block routerLink" to="/">Appy</router-link>
+            <router-link class="font-bold text-xl hidden hover:text-orange-800 sm:block" to="/">Appy</router-link>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-5" v-if="$store.state.user">
-              <router-link class="routerLink" v-for="item in navigation" :key="item.name" 
+              <router-link class="hover:text-orange-800 font-bold" v-for="item in navigation" :key="item.name" 
               :aria-current="item.current ? 'page' : undefined" :to="item.to" >{{ item.name }}</router-link>
             </div>
             <div class="flex space-x-4 pt-1" v-if="!$store.state.user">
-              <router-link class="routerLink" v-for="item in navigationLoggedOut" :key="item.name" 
+              <router-link class="hover:text-orange-800 font-bold" v-for="item in navigationLoggedOut" :key="item.name" 
               :aria-current="item.current ? 'page' : undefined" :to="item.to" >{{ item.name }}</router-link>
             </div>
           </div>

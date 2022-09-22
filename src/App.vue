@@ -20,7 +20,7 @@ onBeforeMount(() => {
 
 <style lang="postcss">
 html {
-    @apply bg-gradient-to-r from-slate-200;
+    background: white;
   }
 
 #app {
